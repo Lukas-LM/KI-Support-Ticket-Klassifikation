@@ -23,7 +23,7 @@ def Classification():
     db_name = config['database_settings']['db_name']
     db_type = config['database_settings']['db_type']
     table_facts = config['database_settings']['table_fact']
-    start_at = = int(config['database_settings']['last_use'])
+    start_at = int(config['database_settings']['last_use'])
     
     # Fetch data from the API
     url = api_url
