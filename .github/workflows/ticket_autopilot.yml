@@ -1,0 +1,38 @@
+name: 🚀 Smart-Support Live Ticket Autopilot
+
+on:
+  schedule:
+    # Der Timer: Läuft nachts und tagsüber vollautomatisch alle 30 Minuten
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # Dieser Befehl schaltet einen "Startknopf" auf GitHub frei, damit du es testen kannst!
+
+jobs:
+  run-predict:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Repository auf den Cloud-Server laden
+      uses: actions/checkout@v4
+
+    - name: 🐍 Python in der Cloud einrichten
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: 🛠️ Benötigte Bibliotheken installieren
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas sqlalchemy scikit-learn sentence-transformers xgboost joblib
+
+    - name: 🤖 Live-Ticket abholen und klassifizieren
+      # HIER steht jetzt dein exakter Dateiname!
+      run: python Classification.py
+
+    - name: 💾 Aktualisierte Datenbank auf GitHub sichern
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Autopilot"
+        git add support_tickets.db config.json
+        git diff --quiet && git diff --staged --quiet || (git commit -m "⏱️ Inkrementelles Update: Neue Live-Tickets eingepflegt" && git push)
