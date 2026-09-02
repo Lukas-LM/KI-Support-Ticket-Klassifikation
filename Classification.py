@@ -23,10 +23,10 @@ def Classification():
     db_name = config['database_settings']['db_name']
     db_type = config['database_settings']['db_type']
     table_facts = config['database_settings']['table_fact']
+    start_at = = int(config['database_settings']['last_use'])
     
     # Fetch data from the API
     url = api_url
-    start_at = 10001
     params = {
                    'jql': f'project = {project_key} ORDER BY key ASC',
                    'startAt': start_at,
@@ -65,3 +65,5 @@ def Classification():
             if_exists = 'append',
             index = False
         )
+    config['database_settings']['last_use'] = start_at + 1
+    save_project_config(config)
