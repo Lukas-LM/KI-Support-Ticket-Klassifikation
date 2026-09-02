@@ -66,4 +66,4 @@ def Classification():
             index = False
         )
     config['database_settings']['last_use'] = start_at + 1
-    save_project_config(config)
+    save_config(config)
