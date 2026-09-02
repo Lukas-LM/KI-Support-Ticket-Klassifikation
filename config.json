@@ -8,7 +8,8 @@
         "db_type": "sqlite:///",
         "db_name": "Klassifikation.db",
         "table_fact": "total_tickets",
-        "table_dim": "dim_clusters"
+        "table_dim": "dim_clusters",
+        "last_use" : 10002
     },
     "model_settings": {
         "n_clusters": 6,
