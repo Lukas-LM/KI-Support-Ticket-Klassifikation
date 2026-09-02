@@ -10,6 +10,6 @@ def load_config(file_path='config.json'):
 
     return config
 
-def current_date(config, file_path='config.json'):
+def save_config(config, file_path='config.json'):
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(config, f, indent=2, ensure_ascii=False)
