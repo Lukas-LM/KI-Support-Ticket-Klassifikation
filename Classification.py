@@ -1,7 +1,7 @@
 from preprocessing import preprocessing
 import joblib
 from sqlalchemy import create_engine
-from functions import load_config, current_date
+from functions import load_config
 import pandas as pd
 from datetime import datetime
 import requests
