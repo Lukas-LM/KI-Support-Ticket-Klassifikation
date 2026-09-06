@@ -2,7 +2,7 @@
     "jira_settings": {
         "api_url": "https://issues.apache.org/jira/rest/api/2/search",
         "project_key": "SPARK",
-        "max_results": 100
+        "max_results": 1
     },
     "database_settings": {
         "db_type": "sqlite:///",
