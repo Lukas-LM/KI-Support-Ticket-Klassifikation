@@ -49,7 +49,7 @@ def Classification():
     # Convert the 'created_date' column to datetime format and handle any errors
     # Change the 'created_date' to the current date and time
     df['created_date'] = pd.to_datetime(df['created_date'], format='%Y-%m-%dT%H:%M:%S.%f%z', errors='coerce')
-    df['created_date'] = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    df['created_date'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     
     engine = create_engine(f"{db_type}{db_name}")
 
