@@ -60,7 +60,7 @@ def Classification():
     for cluster in df['cluster'].unique():
         df_cluster = df[df['cluster'] == cluster]
         df_cluster.to_sql(
-            name = f'{cluster}',
+            name = 'total_tickets',
             con = engine,
             if_exists = 'append',
             index = False
